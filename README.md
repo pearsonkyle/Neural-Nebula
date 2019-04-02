@@ -66,6 +66,13 @@ If `x_train` is empty make sure you have .jpg or .png files in the directory whe
 ## Higher Resolution Images 
 If you want to produce data sets at a resolution higher than 32x32 pixels you will have to modify the architecture of the GAN yourself. For example, uncommenting the two `UpSampling2D()` functions in `build_generator()` will increase the size of the images to 128x128.
 
+## Sampling the latent space
+Use the generator, for an example see the (`save_imgs()`)[] method
+
+## Animating the training steps
+use Imagemagick or ffmpeg to create a gif 
+`ffmpeg -framerate 2 -pattern_type glob -i 'nebula*%d.png' -r 15 -vf scale=512:-1 nebula.gif`
+
 ## Exporting a model to Unity
 The reason I quoted tensorflow v1.4 in the dependencies is to match the version of tensorflow in UnityML just incase you want to upload these models into Unity. More info coming soon...
 - export_model
