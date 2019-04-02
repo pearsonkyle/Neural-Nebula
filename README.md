@@ -71,6 +71,7 @@ Use the generator, for an example see the (`save_imgs()`)[] method
 
 ## Animating the training steps
 use Imagemagick or ffmpeg to create a gif 
+
 `ffmpeg -framerate 2 -pattern_type glob -i 'nebula*%d.png' -r 15 -vf scale=512:-1 nebula.gif`
 
 ## Exporting a model to Unity
