@@ -29,9 +29,11 @@ if __name__ == '__main__':
     
     dcgan.save_imgs('final') 
 ```
-Below is an animation of the training process using 10001 training batches which took ~10 minutes on a GTX
-![]()
-You can start to see some structure in the generator after just 20 minutes of training. The images are procedurally generated from random points in the latent space. More realistic images can be chosen by evaluating them with the discriminator apriori. I tried this example with frogs and it took substantially longer to train and recognize probably due to the facts that frogs naturally blend in with their environments and the resolution of cifar does not do it justice. 
+Below is an animation of the training process using 10001 training batches which took ~10 minutes on a GTX 1070
+![](https://github.com/pearsonkyle/Neural-Nebula/blob/master/images/cifar_bird.gif)
+
+These are random samples from the generator during training. After just 10 minutes of training you can start to see structure that resembles a bird. There's only so much structure you can get from a 32 x 32 pixel image to begin with... More realistic images can be chosen by evaluating them with the discriminator after generating. 
+
 
 ## Creating a custom data set
 The  `create_dataset` function will cut random slices from an images to create a new data set. This function requires you to put images a new directory before hand
