@@ -42,7 +42,7 @@ import numpy as np
 from dcgan import create_dataset 
 
 # first resize the original image to 75% 
-# then cut 100 random 128x128 subframes from the image 
+# then cut 100 random 128x128 subframes from each image in the directory 
 x_train, y_train = create_dataset(128,128, nSlices=100, resize=0.75, directory='space/')
 
 # scale RGB data between 0 and 1
@@ -56,14 +56,18 @@ for i in range(4):
         axs[i,j].axis('off')
 plt.show()
 ```
+An example output should look like this: 
+
+![](https://github.com/pearsonkyle/Neural-Nebula/blob/master/images/nebula_training_sample.png)
+
+If `x_train` is empty make sure you have .jpg or .png files in the directory where your images are stored (e.g. space/) 
+
 
 ## Higher Resolution Images 
-If you want to produce data sets at a resolution higher than 32x32 pixels you will have to modify the architecture of the GAN yourself. For example, uncommenting the two UpSampling2D() functions in build_generator() will increase the size of the images to 128x128. Consequently, the discriminator can be modified in the build_discriminator() function. 
-
+If you want to produce data sets at a resolution higher than 32x32 pixels you will have to modify the architecture of the GAN yourself. For example, uncommenting the two `UpSampling2D()` functions in `build_generator()` will increase the size of the images to 128x128.
 
 ## Exporting a model to Unity
-The reason I quoted tensorflow v1.4 in the dependencies is to match the version of tensorflow in UnityML just incase you want to upload these models into Unity
-
+The reason I quoted tensorflow v1.4 in the dependencies is to match the version of tensorflow in UnityML just incase you want to upload these models into Unity. More info coming soon...
 - export_model
 - load into unity
 - attach mesh generator script 
