@@ -29,11 +29,11 @@ if __name__ == '__main__':
     
     dcgan.save_imgs('final') 
 ```
-Below is an animation of the training process every 100 training batches. The code above took 10 minutes to run on a GTX 1070
+Below is an animation of the training process every 100 training batches. The code above took ~10 minutes to run on a GTX 1070. These are random samples from the generator during training. After just 10 minutes of training you can start to see structure that resembles a bird. There's only so much structure you can get from a 32 x 32 pixel image to begin with... More realistic images can be chosen by evaluating them with the discriminator after generating. 
 
 ![](https://github.com/pearsonkyle/Neural-Nebula/blob/master/images/cifar_bird.gif)
 
-These are random samples from the generator during training. After just 10 minutes of training you can start to see structure that resembles a bird. There's only so much structure you can get from a 32 x 32 pixel image to begin with... More realistic images can be chosen by evaluating them with the discriminator after generating. 
+
 
 
 ## Creating a custom data set
