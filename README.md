@@ -70,7 +70,7 @@ If you want to produce data sets at a resolution higher than 32x32 pixels you wi
 Use the generator, for an example see the (`save_imgs()`)[] method
 
 ## Animating the training steps
-use Imagemagick or ffmpeg to create a gif 
+check the directory images/ and then use Imagemagick or ffmpeg to create a gif 
 
 `ffmpeg -framerate 2 -pattern_type glob -i 'nebula*%d.png' -r 15 -vf scale=512:-1 nebula.gif`
 
