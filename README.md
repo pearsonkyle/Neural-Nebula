@@ -33,20 +33,28 @@ Below is an animation of the training process every 100 training batches. The co
 
 ![](https://github.com/pearsonkyle/Neural-Nebula/blob/master/images/cifar_bird.gif)
 
-
-
-
 ## Creating a custom data set
 The  `create_dataset` function will cut random slices from an images to create a new data set. This function requires you to put images a new directory before hand
 ```python
+import matplotlib.pyplot as plt
+import numpy as np
+
 from dcgan import create_dataset 
 
 # first resize the original image to 75% 
 # then cut 100 random 128x128 subframes from the image 
-x_train, y_train = create_dataset(128,128, nSlices=100, resize=0.75, directory='images/')
+x_train, y_train = create_dataset(128,128, nSlices=100, resize=0.75, directory='space/')
 
 # scale RGB data between 0 and 1
 x_train /= 255 
+
+# plot results to make sure data looks good!
+fig, axs = plt.subplots(4, 4)
+for i in range(4):
+    for j in range(4):
+        axs[i,j].imshow( x_train[ np.random.randint(x_train.shape[0]) ] )
+        axs[i,j].axis('off')
+plt.show()
 ```
 
 ## Higher Resolution Images 
