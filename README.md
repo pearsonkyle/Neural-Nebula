@@ -3,7 +3,7 @@ A deep convolutional generative adversarial network (DCGAN) is trained on pictur
 
 ## Dependencies
 - [Python 3.6+](https://www.anaconda.com/distribution/)
-- Keras, Tensorflow==1.4, Matplotlib, Numpy, PIL, Scikit-learn
+- Keras, Tensorflow, Matplotlib, Numpy, PIL, Scikit-learn
 
 ## Example
 Clone the repo, cd into the directory, launch iPython and paste the example below 
