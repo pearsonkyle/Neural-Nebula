@@ -1,5 +1,5 @@
 # Neural-Nebula
-A deep convolutional generative adversarial network (DCGAN) is trained on pictures of space. Images can be procedurally created from the generative neural network by sampling the latent space. Information on the neural network can be found here: https://arxiv.org/abs/1511.06434
+A deep convolutional generative adversarial network (DCGAN) is trained on pictures of space. Images can be procedurally created from the generative neural network by sampling the latent space. Information on the neural network architecture can be found here: https://arxiv.org/abs/1511.06434
 
 ![](https://github.com/pearsonkyle/Neural-Nebula/blob/master/nebula.gif)
 
