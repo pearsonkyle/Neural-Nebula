@@ -3,6 +3,8 @@ A deep convolutional generative adversarial network (DCGAN) is trained on pictur
 
 ![](https://github.com/pearsonkyle/Neural-Nebula/blob/master/nebula.gif)
 
+A video with sound can be found [here](https://www.instagram.com/p/Bv0Vd-tlOwi/)
+
 ## Dependencies
 - [Python 3.6+](https://www.anaconda.com/distribution/)
 - Keras, Tensorflow, Matplotlib, Numpy, PIL, Scikit-learn
@@ -36,7 +38,7 @@ Below is an animation of the training process every 100 training batches. The co
 ![](https://github.com/pearsonkyle/Neural-Nebula/blob/master/images/cifar_bird.gif)
 
 ## Creating a custom data set
-The  `create_dataset` function will cut random slices from an images to create a new data set. This function requires you to put images a new directory before hand
+The  `create_dataset` function will cut random slices from an images to create a new data set. This function requires you to put images in a new directory before hand
 ```python
 import matplotlib.pyplot as plt
 import numpy as np
