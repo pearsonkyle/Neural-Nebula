@@ -1,6 +1,8 @@
 # Neural-Nebula
 A deep convolutional generative adversarial network (DCGAN) is trained on pictures of space. Images can be procedurally created from the generative neural network by sampling the latent space. Information on the neural network can be found here: https://arxiv.org/abs/1511.06434
 
+![](https://github.com/pearsonkyle/Neural-Nebula/blob/master/nebula.gif)
+
 ## Dependencies
 - [Python 3.6+](https://www.anaconda.com/distribution/)
 - Keras, Tensorflow, Matplotlib, Numpy, PIL, Scikit-learn
