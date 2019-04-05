@@ -1,9 +1,13 @@
 # Neural-Nebula
-A deep convolutional generative adversarial network (DCGAN) is trained on pictures of space. Images can be procedurally created from the generative neural network by sampling the latent space. Information on the neural network can be found here: https://arxiv.org/abs/1511.06434
+A deep convolutional generative adversarial network (DCGAN) is trained on pictures of space. Images can be procedurally created from the generative neural network by sampling the latent space. Information on the neural network architecture can be found here: https://arxiv.org/abs/1511.06434
+
+![](https://github.com/pearsonkyle/Neural-Nebula/blob/master/nebula.gif)
+
+A video with sound can be found [here](https://www.instagram.com/p/Bv0Vd-tlOwi/)
 
 ## Dependencies
 - [Python 3.6+](https://www.anaconda.com/distribution/)
-- Keras, Tensorflow==1.4, Matplotlib, Numpy, PIL, Scikit-learn
+- Keras, Tensorflow, Matplotlib, Numpy, PIL, Scikit-learn
 
 ## Example
 Clone the repo, cd into the directory, launch iPython and paste the example below 
@@ -34,7 +38,7 @@ Below is an animation of the training process every 100 training batches. The co
 ![](https://github.com/pearsonkyle/Neural-Nebula/blob/master/images/cifar_bird.gif)
 
 ## Creating a custom data set
-The  `create_dataset` function will cut random slices from an images to create a new data set. This function requires you to put images a new directory before hand
+The  `create_dataset` function will cut random slices from an images to create a new data set. This function requires you to put images in a new directory before hand
 ```python
 import matplotlib.pyplot as plt
 import numpy as np
@@ -72,10 +76,4 @@ Use the generator, for an example see the (`save_imgs()`)[] method
 ## Animating the training steps
 check the directory images/ and then use Imagemagick or ffmpeg to create a gif 
 
-`ffmpeg -framerate 2 -pattern_type glob -i 'nebula*%d.png' -r 15 -vf scale=512:-1 nebula.gif`
-
-## Exporting a model to Unity
-The reason I quoted tensorflow v1.4 in the dependencies is to match the version of tensorflow in UnityML just incase you want to upload these models into Unity. More info coming soon...
-- export_model
-- load into unity
-- attach mesh generator script 
+`ffmpeg -framerate 60 -i "nebula_%05d.png" -i "planet_caravan.mp3" -map 0:v:0 -map 1:a:0 -c:v libx264 -pix_fmt yuv420p -strict -2 -shortest nebula.mp4`
