@@ -9,9 +9,6 @@ if __name__ == '__main__':
     x_train = x_train[ (y_train==2).reshape(-1) ] 
     x_train = x_train/255
     
-    # scale RGB data between 0 and 1
-    x_train /= 255 
-    
     dcgan = DCGAN(img_rows = x_train[0].shape[0],
                     img_cols = x_train[0].shape[1],
                     channels = x_train[0].shape[2], 

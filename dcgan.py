@@ -179,7 +179,7 @@ class DCGAN():
 
             # If at save interval => save generated image samples
             if epoch % save_interval == 0:
-                self.save_imgs( "images/{}_{}.png".format(self.name,epoch) )
+                self.save_imgs( "images/{}_{:05d}.png".format(self.name,epoch) )
                 # self.combined.save_weights("combined_weights ({}).h5".format(self.name)) # https://github.com/keras-team/keras/issues/10949
                 self.generator.save_weights("generator ({}).h5".format(self.name))
 

@@ -56,7 +56,7 @@ if __name__ == '__main__':
     
     dcgan.save_imgs('final') 
 ```
-Below is an animation of the training process every 100 training batches. The code above took ~10 minutes to run on a GTX 1070. These are random samples from the generator during training. After just 10 minutes of training you can start to see structure that resembles a bird. There's only so much structure you can get from a 32 x 32 pixel image to begin with... More realistic images can be chosen by evaluating them with the discriminator after generating. 
+Below is an animation of the training process every 500 training batches. The code above took ~10 minutes to run on a GTX 1070. These are random samples from the generator during training. After just 10 minutes of training you can start to see structure that resembles a bird. There's only so much structure you can get from a 32 x 32 pixel image to begin with... More realistic images can be chosen by evaluating them with the discriminator after generating. 
 
 ![](https://github.com/pearsonkyle/Neural-Nebula/blob/master/images/cifar_bird.gif)
 
@@ -97,6 +97,10 @@ If you want to produce data sets at a resolution higher than 32x32 pixels you wi
 Use the generator, for an example see the [`save_imgs`](https://github.com/pearsonkyle/Neural-Nebula/blob/master/dcgan.py#L185) method
 
 ## Animating the training steps
-check the directory `images/` and then use Imagemagick, gimp or ffmpeg to create a gif 
+check the directory `images/` and then use Imagemagick, gimp or ffmpeg to create a gif. For example after running the cifar_example.py cd into the `images/` directory and run the code below 
 
-`ffmpeg -framerate 60 -i "nebula_%05d.png" -i "planet_caravan.mp3" -map 0:v:0 -map 1:a:0 -c:v libx264 -pix_fmt yuv420p -strict -2 -shortest nebula.mp4`
+`ffmpeg -framerate 3 -i "cifar10_%05d.png" cifar.gif`
+
+if that doesn't work try this: 
+
+`ffmpeg -framerate 3 -pattern_type glob -i "cifar10_*.png" cifar_bird.gif` 
