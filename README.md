@@ -6,12 +6,35 @@ A deep convolutional generative adversarial network (DCGAN) is trained on pictur
 A video with sound can be found [here](https://www.instagram.com/p/Bv0Vd-tlOwi/)
 
 ## Dependencies
-- [Python 3.6+](https://www.anaconda.com/distribution/)
+- [Python 3+](https://www.anaconda.com/distribution/)
 - Keras, Tensorflow, Matplotlib, Numpy, PIL, Scikit-learn
 
 ## Example
 Clone the repo, cd into the directory, launch iPython and paste the example below 
 ```python 
+import tensorflow as tf
+from dcgan import DCGAN, create_dataset
+
+if __name__ == '__main__':
+
+    x_train, y_train = create_dataset(128,128, nSlices=150, resize=0.75, directory='space/')
+    assert(x_train.shape[0]>0)
+
+    x_train /= 255 
+
+    dcgan = DCGAN(img_rows = x_train[0].shape[0],
+                    img_cols = x_train[0].shape[1],
+                    channels = x_train[0].shape[2], 
+                    latent_dim=32,
+                    name='nebula_32_128')
+                    
+    dcgan.train(x_train, epochs=1000, batch_size=32, save_interval=100)
+```
+After it's done training check the `images/` folder for outputs during the training process
+
+## cifar example
+Prior to running the code below you will have to remove the upsampling layers in the GAN (line X and line X) in order to preserve the 32 x 32 output resolution of the generator
+```python
 from keras.datasets import cifar10
 from dcgan import DCGAN
 
@@ -68,7 +91,7 @@ If `x_train` is empty make sure you have .jpg or .png files in the directory whe
 
 
 ## Higher Resolution Images 
-If you want to produce data sets at a resolution higher than 32x32 pixels you will have to modify the architecture of the GAN yourself. For example, uncommenting the two `UpSampling2D()` functions in `build_generator()` will increase the size of the images to 128x128.
+If you want to produce data sets at a resolution higher than 32x32 pixels you will have to modify the architecture of the GAN yourself. For example, including the two `UpSampling2D()` functions in `build_generator()` will increase the size of the images to 128x128.
 
 ## Sampling the latent space
 Use the generator, for an example see the (`save_imgs()`)[] method

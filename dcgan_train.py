@@ -2,13 +2,15 @@ import argparse
 
 import tensorflow as tf
 
-from dcgan import DCGAN, export_model, create_dataset
+from dcgan import DCGAN, create_dataset
 
 def parse_args():
     parser = argparse.ArgumentParser()
+    help_ = "Load h5 model trained weights"
+    parser.add_argument("-w", "--weights", help=help_)
 
     help_ = "Number of training epochs"
-    parser.add_argument("-e", "--epochs", help=help_, default=1000, type=int)
+    parser.add_argument("-e", "--epochs", help=help_, default=10 ,type=int)
 
     return parser.parse_args()
 
