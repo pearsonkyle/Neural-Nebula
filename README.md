@@ -33,7 +33,7 @@ if __name__ == '__main__':
 After it's done training check the `images/` folder for outputs during the training process
 
 ## cifar example
-Prior to running the code below you will have to remove the upsampling layers in the GAN (line X and line X) in order to preserve the 32 x 32 output resolution of the generator
+Prior to running the code below you will have to remove the upsampling layers in the GAN ([line 84](https://github.com/pearsonkyle/Neural-Nebula/blob/master/dcgan.py#L84) and [line 95](https://github.com/pearsonkyle/Neural-Nebula/blob/master/dcgan.py#L95) ) in order to preserve the 32 x 32 output resolution of the generator
 ```python
 from keras.datasets import cifar10
 from dcgan import DCGAN
@@ -87,16 +87,16 @@ An example output should look like this:
 
 ![](https://github.com/pearsonkyle/Neural-Nebula/blob/master/images/nebula_training_sample.png)
 
-If `x_train` is empty make sure you have .jpg or .png files in the directory where your images are stored (e.g. space/) 
+If `x_train` is empty make sure you have `.jpg` or `.png` files in the directory where your images are stored (e.g. `space/`) 
 
 
 ## Higher Resolution Images 
 If you want to produce data sets at a resolution higher than 32x32 pixels you will have to modify the architecture of the GAN yourself. For example, including the two `UpSampling2D()` functions in `build_generator()` will increase the size of the images to 128x128.
 
 ## Sampling the latent space
-Use the generator, for an example see the (`save_imgs()`)[] method
+Use the generator, for an example see the [`save_imgs`](https://github.com/pearsonkyle/Neural-Nebula/blob/master/dcgan.py#L185) method
 
 ## Animating the training steps
-check the directory images/ and then use Imagemagick or ffmpeg to create a gif 
+check the directory `images/` and then use Imagemagick, gimp or ffmpeg to create a gif 
 
 `ffmpeg -framerate 60 -i "nebula_%05d.png" -i "planet_caravan.mp3" -map 0:v:0 -map 1:a:0 -c:v libx264 -pix_fmt yuv420p -strict -2 -shortest nebula.mp4`
